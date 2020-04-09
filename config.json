@@ -1,0 +1,25 @@
+{
+    "params":{
+        "name":"Syeda Marium Faheem",
+        "tagline":"I am Full Stack web Developer",
+        "local_server":"mysql://root:@localhost/myportfolio",
+      "producton_server":"mysql://root:@localhost/myportfolio",
+        "contact":"Get In Touch",
+      "contactdetail":"Contact Detail",
+      "email":"mariums82@gmail.com",
+      "address":"Karachi,Pakistan",
+      "fb":"https://www.facebook.com/mariumfaheem",
+      "linkin":"https://www.linkedin.com/in/syedamariumfaheem/",
+      "twitter":"https://twitter.com/MarIUmFAheem2",
+      "insta":"https://www.instagram.com/Marium___faheem/",
+      "admin_user":"Marium",
+      "admin_password":"6958510maths",
+      "my_image":"mar.jpg",
+        "image":"download.png",
+      "upload_location":"C:\\Users\\SS Computer\\PycharmProjects\\Myportfolio\\static\\images",
+      "about_me_main":"I'm a Full Stack Developer in Karachi.I have been in web development and in programming in general for many years during that time I've worked on many different: project, difficulties, platforms and teams.",
+      "about_me_tagline":"I am Computer And Information System graduate and, I am programmer , Web Developer and Cyber Security Expert with having an experience of over 3 years as a Programmer and 1 years as a Cyber Security Expert . I can solve any problem related to SDN. .Client satisfaction is what I strive for and it reflects in my work ethics.Specializing in custom website development. If you're a business seeking a web presence or are looking to hire, contact me"
+
+
+    }
+}

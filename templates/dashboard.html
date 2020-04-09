@@ -1,0 +1,302 @@
+{% extends 'layout2.html' %}
+
+{% block head %}
+    <title>{{ params['name']}}</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#div1{
+  float: right;
+
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+  <!--My porfilio Work-->
+   <br>
+      <section class="site-section border-top pb-0"  id="section-services">
+
+            <div class="container">
+<h1>My Portfolio</h1>
+               <a   href="/edit_wk/0"><button type="button" class="my-4 btn btn-info">ADD</button></a>
+<table>
+
+      <tr>
+            <th>Worked ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Css Class (Enter without gap)</th>
+          <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+      </tr>
+  {% for work in worked %}
+  <tr>
+        <td>{{ work.sno }}</td>
+        <td>{{ work.title }}</td>
+        <td>{{ work.content }}</td>
+        <td>{{ work.css_class }}</td>
+       <td>{{ work.image }}</td>
+        <td><a href="/edit_wk/{{work.sno}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+        <td><a href="/deletept/{{ work.sno }}"><button type="button" class="btn btn-info">Delete</button></a></td>
+
+  </tr>
+    {% endfor %}
+
+</table>
+             </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+
+
+<!--My Skills-->
+        <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+       <h1>Skills</h1>
+       <a   href="/edit_skills//0"><button type="button" class="my-4 btn btn-info">ADD</button></a>
+          <table><tr>
+            <th>Skill ID</th>
+            <th>Skill Name</th>
+            <th>Skill Expertise (in number 1-100)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+  {% for skill in skills %}
+  <tr>
+        <td>{{ skill.sno }}</td>
+        <td>{{ skill.s_name }}</td>
+        <td>{{ skill.s_expertise }}</td>
+        <td><a href="/edit_skills/{{skill.sno}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+        <td><a href="/deletems/{{ skill.sno }}"><button type="button" class="btn btn-info">Delete</button></a></td>
+
+  </tr>
+    {% endfor %}
+</table>
+      </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+
+    <!-- My Services-->
+
+         <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+          <h1>My Services</h1>
+      <a   href="/edit_service/0"><button type="button" class="my-4 btn btn-info">ADD</button></a>
+          <table><tr>
+            <th>Service ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+  {% for ms in myservice %}
+  <tr>
+        <td>{{ ms.sno }}</td>
+        <td>{{ ms.title }}</td>
+        <td>{{ ms.content }}</td>
+        <td>{{ ms.image }}</td>
+        <td><a href="/edit_service/{{ms.sno}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+        <td><a href="/deleteserv/{{ ms.sno }}"><button type="button" class="btn btn-info">Delete</button></a></td>
+
+  </tr>
+    {% endfor %}
+</table>
+      </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+
+    <!-- client review-->
+       <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+          <h1>Client Reviews</h1>
+                  <a   href="/edit_client_review/0"><button type="button" class="my-4 btn btn-info">ADD</button></a>
+          <table><tr>
+            <th>Client ID</th>
+            <th>Client Name</th>
+            <th>Client Content(Review)</th>
+                 <th>Client Image</th>
+                  <th>Client Title(Position,occupation)</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+  {% for cr in clientrw %}
+  <tr>
+        <td>{{ cr.sno }}</td>
+        <td>{{ cr.c_name }}</td>
+        <td>{{ cr.c_content }}</td>
+        <td>{{ cr.client_name }}</td>
+        <td>{{ cr_image }}</td>
+       <td>{{ cr.c_image }}</td>
+        <td><a href="/edit_client_review/{{cr.sno}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+        <td><a href="/deletetestimental/{{ cr.sno }}"><button type="button" class="btn btn-info">Delete</button></a></td>
+
+  </tr>
+    {% endfor %}
+</table>
+      </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+<!-- Contact US-->
+
+        <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+          <h1>People Who Contact Me</h1>
+          <table><tr>
+            <th>Contact No ID</th>
+            <th>Contactor Name</th>
+            <th>Contactor Email</th>
+              <th>Contactor Phone Number</th>
+              <th>Contactor message</th>
+          </tr>
+  {% for contact in contacts %}
+  <tr>
+        <td>{{ contact.sno }}</td>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phone_num }}</td>
+        <td>{{ contact.msg }}</td>
+
+
+  </tr>
+    {% endfor %}
+</table>
+      </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+
+<!-- Education-->
+
+ <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+          <h1>Educational Background</h1>
+           <a   href="/edit_ex//0"><button type="button" class="my-4 btn btn-info">ADD</button></a>
+          <table><tr>
+            <th>ID</th>
+            <th>Insitute Name</th>
+            <th>Insitute Description</th>
+              <th>City</th>
+               <th>Start Date</th>
+               <th>Ending Date</th>
+                <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+  {% for ed in educations %}
+  <tr>
+        <td>{{ ed.sno }}</td>
+        <td>{{ ed.in_name }}</td>
+        <td>{{ ed.in_des }}</td>
+        <td>{{ ed.in_city }}</td>
+        <td>{{ ed.in_date_s }}</td>
+        <td>{{ ed.in_date_l }}</td>
+      <td><a href="/edit_ex/{{ed.sno}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+        <td><a href="/deleteed/{{ ed.sno }}"><button type="button" class="btn btn-info">Delete</button></a></td>
+
+
+  </tr>
+    {% endfor %}
+</table>
+      </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+
+<!-- Ecperince-->
+
+ <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+          <h1>Work Experince</h1>
+       <a   href="/edit_ed//0"><button type="button" class="my-4 btn btn-info">ADD</button></a>
+          <table><tr>
+            <th>ID</th>
+            <th>Work Place Name </th>
+            <th>Role </th>
+              <th>Title </th>
+               <th>Start Date</th>
+               <th>Ending Date
+                <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+  {% for ex in experinces %}
+  <tr>
+        <td>{{ ex.sno }}</td>
+        <td>{{ ex.e_name }}</td>
+        <td>{{ ex.e_role}}</td>
+        <td>{{ ex.e_title }}</td>
+        <td>{{ ex.s_date }}</td>
+        <td>{{ ex.l_date }}</td>
+   <td><a href="/edit_ed/{{ex.sno}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+        <td><a href="/deletewe/{{ ex.sno }}"><button type="button" class="btn btn-info">Delete</button></a></td>
+
+
+  </tr>
+    {% endfor %}
+</table>
+      </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+
+
+<!-- Fiver Links-->
+
+ <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+          <h1>Freelance Market Place links</h1>
+       <a  href="/edit_fl//0"><button type="button" class="my-4 btn btn-info">ADD</button></a>
+          <table><tr>
+            <th>ID</th>
+            <th>Heading (Title ) </th>
+            <th>Detail </th>
+              <th>Link</th>
+                <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+  {% for ex in fiverlinks %}
+  <tr>
+        <td>{{ ex.sno }}</td>
+        <td>{{ ex.heading }}</td>
+        <td>{{ ex.points}}</td>
+        <td>{{ ex.links }}</td>
+
+   <td><a href="/edit_fl/{{ex.sno}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+        <td><a href="/deletefl/{{ ex.sno }}"><button type="button" class="btn btn-info">Delete</button></a></td>
+
+
+  </tr>
+    {% endfor %}
+</table>
+      </div>
+      </div> <!--Contianer of services end here-->
+      </section>
+
+    <h5><a href="#">Top</a></h5>
+
+{% endblock %}

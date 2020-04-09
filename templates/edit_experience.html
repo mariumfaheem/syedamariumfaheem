@@ -1,0 +1,103 @@
+{% extends 'layout2.html' %}
+
+{% block head %}
+    <title>{{ params['name']}}</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#div1{
+  float: right;
+
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+
+</div>
+
+<!--Edit From-->
+  <section class="site-section bg-light" id="section-contact">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-12 mb-5">
+            <div class="section-heading text-center">
+              <h2><strong>Edit Client Reviews </strong> </h2>
+            </div>
+          </div>
+
+
+           <!-- #`sno``e_name``e_role``e_title``date`-->
+
+
+     <div class="col-md-7 mb-5 mb-md-0">
+          <h1><strong>Add a new review</strong></h1>
+
+            <a   href="/edit_ed//0"><button type="button" class="btn btn-info">ADD</button></a>
+
+            <form action="/edit_ed/{{sno}}" class="site-form" name="form" method="post" enctype="multipart/form-data">
+                <br>
+              <h3 class="mb-5">Edit Panel</h3>
+              <div class="form-group">
+                  <p>Enter Workplace  Name</p>
+                <input name="e_name" type="text" class="form-control px-3 py-4" value="{{ client_review.e_name }}" >
+              </div>
+
+              <div class="form-group">
+                  <p>Enter your Role(Your work at their)</p>
+                <input  name="e_role" type="text" class="form-control px-3 py-4"  value="{{ client_review.e_role }}">
+              </div>
+              <div class="form-group">
+                  <p>Enter title </p>
+                <input type="text" name="e_title" class="form-control px-3 py-4" value="{{ client_review.e_title }}">
+              </div>
+
+                 <div class="form-group">
+                  <p>Enter Starting Date </p>
+                <input type="text" name="s_date" class="form-control px-3 py-4" value="{{ client_review.s_date }}" >
+              </div>
+
+                 <div class="form-group">
+                  <p>Enter Leaving Date </p>
+                <input type="text" name="l_date" class="form-control px-3 py-4" value="{{ client_review.l_date }}" >
+              </div>
+
+
+
+
+
+              <div class="form-group">
+                <input name="submit" type="submit" class="btn btn-primary  px-4 py-3" value="Submit">
+              </div>
+            </form>
+          </div>
+
+
+     </div>
+      </div>
+    </section>
+
+
+
+{% endblock %}

@@ -1,0 +1,360 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<style>
+     .front{
+    max-width: 233px;
+    height: 222px;
+    margin-left: 177px;
+}</style>
+{% endblock %}
+
+{% block body %}
+
+
+   {%  set img_file="images/" + params.image  %}
+    <section class="site-hero" style="background-image: url( {{ url_for('static',filename="images/download.jpg")}} );" id="section-home" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row intro-text align-items-center justify-content-center">
+          <div class="col-md-10 text-center">
+            <h1 class="site-heading site-animate">I am <strong>{{ params.name }}</strong></h1>
+            <p class="lead site-subheading mb-4 site-animate">{{ params.tagline }}.</p>
+            <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
+          </div>
+        </div>
+      </div>
+    </section> <!-- section -->
+
+  
+    <section class="site-section" id="section-about">
+      <div class="container">
+        <div class="row mb-5 align-items-center">
+          <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
+
+                   {%  set img_file="images/" + params.my_image   %}
+                                   <img class=" front image img-fluid" src="{{ url_for('static',filename=img_file)}}" alt="" class="img-fluid">
+          </div>
+          <div class="col-lg-5 pl-lg-5">
+            <div class="section-heading">
+              <h2>About <strong>Me</strong></h2>
+            </div>
+            <p class="lead">{{ params['about_me_main'] }}.</p>
+            <p class="mb-5  ">{{ params['about_me_tagline']  }}
+            <p>
+              <a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
+              <a href="#" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="row pt-5">
+          <div class="col-md-3 mb-3">
+            <div class="section-heading">
+              <h2>My <strong>Skills</strong></h2>
+            </div>
+          </div>
+          <div class="col-md-9">
+              {% for skill in skills %}
+            <div class="skill">
+              <h3>{{ skill.s_name }}</h3>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:{{ skill.s_expertise}}%" aria-valuenow="{{ skill.s_expertise}}%" aria-valuemin="0" aria-valuemax="100">
+                  <span>{{ skill.s_expertise}}%</span>
+                </div>
+              </div>
+            </div>
+           {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section bg-light">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12">
+            <div class="section-heading text-center">
+              <h2>Client <strong>Testimonial</strong></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+              {% for clientr in clientrw %}
+          <div class="col-md-6">
+
+              <div class="block-47 d-flex mb-5">
+                <div class="block-47-image">
+
+                  <img src="{{ url_for('static',filename="images/person_1.jpg")}}" alt="Image placeholder" class="img-fluid">
+                </div>
+                <blockquote class="block-47-quote">
+                  <p>&ldquo;{{ clientr.c_content }}&rdquo;</p>
+                  <cite class="block-47-quote-author">&mdash; {{ clientr.c_name }} <a href="#">{{ clientr.c_title }}.</a></cite>
+                </blockquote>
+              </div>
+
+          </div>
+            {% endfor %}
+        </div>
+
+
+
+      </div>
+    </section>
+
+
+    <section class="site-section border-top pb-0"  id="section-services">
+      <div class="container">
+
+        <div class="row mb-4">
+          <div class="col-md-12">
+            <div class="section-heading text-center">
+              <h2>My <strong>Services</strong></h2>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+           {% for service in myservice %}
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+
+            <div class="site-service-item site-animate" data-animate-effect="fadeIn">
+              <span class="icon">
+                    {%  set img_file="images/" + service.image  %}
+            <img  class="image img-fluid" src="{{ url_for('static',filename=img_file)}}" alt="">
+
+              </span>
+              <h3 class="mb-4">{{ service.title }}</h3>
+              <p>{{ service.content }}</p>
+              <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
+            </div>
+
+          </div>
+            {% endfor %}
+
+
+        </div>
+      </div> <!--Contianer of services end here-->
+    </section>
+
+
+
+
+
+
+    <section class="site-section" id="section-features">
+     <div class="container">
+
+        <div class="row mb-4">
+          <div class="col-md-12">
+            <div class="section-heading text-center">
+              <h2>Book <strong>Order</strong> now</h2>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+           {% for fl in fiverlinks %}
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+
+            <div class="site-service-item site-animate" data-animate-effect="fadeIn">
+
+              <h3 class="mb-4">{{ fl.heading }}</h3>
+              <p>{{ fl.points }}</p>
+                 <a href="{{ fl.links }}" target="_blank" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Book Now</a>
+
+            </div>
+
+          </div>
+            {% endfor %}
+
+
+        </div>
+      </div> <!--Contianer of services end here-->
+
+
+    </section>
+
+
+
+
+
+
+    
+
+
+    <section class="site-section" id="section-portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="section-heading text-center col-md-12">
+              <h2>Featured <strong>Portfolio</strong></h2>
+            </div>
+        </div>
+        <div class="filters">
+                        <ul>
+                            <li class="active" data-filter="*">All</li>
+                            {% for work in worked %}
+                            <li data-filter=".{{ work.css_class }}">{{ work.title }}</li>
+                             {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="filters-content">
+                        <div class="row grid">
+                            {% for work in worked %}
+                            <div class="single-portfolio col-sm-4 all {{ work.css_class }}">
+                              <div class="relative">
+                                <div class="thumb">
+                                  <div class="overlay overlay-bg"></div>
+                                       {%  set img_file="images/" + work.image   %}
+                                   <img  style="height: 300px;
+    width: 400px;" class="image img-fluid" src="{{ url_for('static',filename=img_file)}}" alt="">
+                                </div>
+                  <a href="{{ url_for('static',filename="images/p1.jpg")}}" >
+                    <div class="middle">
+                    {%  set img_file="images/" + work.image   %}
+                      <div class="text align-self-center d-flex"><img  style="height: 300px;
+    width: 500px;" src="{{ url_for('static',filename=img_file)}}" alt=""></div>
+                    </div>
+                </a>
+                              </div>
+                <div class="p-inner">
+                    <h4>{{ work.title }}</h4>
+                  <div class="cat">{{ work.content }}</div>
+                </div>
+                            </div>
+
+                      {% endfor %}
+                        </div>
+                    </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="site-section bg-light " id="section-resume">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-5">
+            <div class="section-heading text-center">
+              <h2>My <strong>Resume</strong></h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h2 class="mb-5">Education</h2>
+              {% for education in educations %}
+            <div class="resume-item mb-4">
+              <span class="date"><span class="icon-calendar"></span> {{ education.in_date_s }} - {{ education.in_date_l }}</span>
+              <h5><strong>{{ education.in_name }}</strong></h5>
+              <p>{{ education.in_des}}</p>
+              <span class="school">{{ education.in_city }}</span>
+            </div>
+              {% endfor %}
+
+          </div>
+
+          <div class="col-md-6">
+              <h2 class="mb-5">Experience</h2>
+              {% for experince in experinces %}
+
+
+            <div class="resume-item mb-4">
+              <span class="date"><span class="icon-calendar"></span> {{ experince.s_date }} - {{ experince.l_date }}</span>
+              <h5><strong>{{ experince.e_name }}</strong></h5>
+              <p>{{ experince.e_role }}.</p>
+              <span class="school">{{ experince.e_title }}</span>
+            </div>
+              {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+
+
+
+
+
+
+
+  <section class="site-section bg-light" id="section-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-5">
+            <div class="section-heading text-center">
+              <h2>Wanna <strong>Start Work</strong> With Me?</h2>
+            </div>
+          </div>
+     <div class="col-md-7 mb-5 mb-md-0">
+            <form action="" class="site-form" name="form" method="post">
+              <h3 class="mb-5">Get In Touch</h3>
+              <div class="form-group">
+                <input name="name" type="text" class="form-control px-3 py-4" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input  name="email"type="email" class="form-control px-3 py-4" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" name="phone_num" class="form-control px-3 py-4" placeholder="Your Phone">
+              </div>
+              <div class="form-group mb-5">
+                <textarea name="msg" class="form-control px-3 py-4"cols="30" rows="10" placeholder="Write a Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input name="submit" type="submit" class="btn btn-primary  px-4 py-3" value="Send Message">
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-5 pl-md-5">
+            <h3 class="mb-5">{{ params.contactdetail }}</h3>
+            <ul class="site-contact-details">
+              <li>
+                <span class="text-uppercase">Email</span>
+                {{ params.email }}
+              </li>
+
+
+              <li>
+                <span class="text-uppercase">Address</span>
+              {{ params.address }}
+              </li>
+            </ul>
+          </div>
+     </div>
+      </div>
+    </section>
+
+
+{% endblock %}
+
+
+
+
+
+{% block js %}
+
+    <script src="{{ url_for('static',filename="js/vendor/jquery.min.js")}}"_></script>
+    <script src="{{ url_for('static',filename="js/vendor/popper.min.js")}}"></script>
+    <script src="{{ url_for('static',filename="js/vendor/bootstrap.min.js")}}"></script>
+    
+    <script src="{{ url_for('static',filename="js/vendor/jquery.easing.1.3.js")}}"></script>
+    <script src="{{ url_for('static',filename="js/vendor/jquery.stellar.min.js")}}"></script>
+    <script src="{{ url_for('static',filename="js/vendor/jquery.waypoints.min.js")}}"></script>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="{{ url_for('static',filename="js/custom.js")}}"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{{ url_for('static',filename="js/google-map.js")}}"></script>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'layout2.html' %}
+
+{% block head %}
+    <title>{{ params['name']}}</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#div1{
+  float: right;
+
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+
+</div>
+
+<!--Edit From-->
+  <section class="site-section bg-light" id="section-contact">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-12 mb-5">
+            <div class="section-heading text-center">
+              <h2><strong>Edit Client Reviews </strong> </h2>
+            </div>
+          </div>
+
+
+           <!-- sno``in_name``in_des``in_city``in_date_s``in_date_l-->
+
+     <div class="col-md-7 mb-5 mb-md-0">
+          <h1><strong>Add a new review</strong></h1>
+
+            <a   href="/edit_ex//0"><button type="button" class="btn btn-info">ADD</button></a>
+
+            <form action="/edit_ex/{{sno}}" class="site-form" name="form" method="post" enctype="multipart/form-data">
+                <br>
+              <h3 class="mb-5">Edit Panel</h3>
+              <div class="form-group">
+                  <p>Enter institute  name</p>
+                <input name="in_name" type="text" class="form-control px-3 py-4" value="{{ client_review.in_name }}">
+              </div>
+
+              <div class="form-group">
+                  <p>Enter institute Details </p>
+                <input  name="in_des" type="text" class="form-control px-3 py-4"  value="{{ client_review.in_des }}" >
+              </div>
+              <div class="form-group">
+                  <p>Enter institute city</p>
+                <input type="text" name="in_city" class="form-control px-3 py-4" value="{{ client_review.in_city }}" >
+              </div>
+
+                  <div class="form-group">
+                  <p>Enter institute Joining date</p>
+                <input type="text" name="in_date_s" class="form-control px-3 py-4" value="{{ client_review.in_date_s }}" >
+              </div>
+                  <div class="form-group">
+                  <p>Enter institute Leaving date</p>
+                <input type="text" name="in_date_l" class="form-control px-3 py-4" value="{{ client_review.in_date_l }}" >
+              </div>
+
+
+
+
+
+              <div class="form-group">
+                <input name="submit" type="submit" class="btn btn-primary  px-4 py-3" value="Submit">
+              </div>
+            </form>
+          </div>
+
+
+     </div>
+      </div>
+    </section>
+
+
+
+{% endblock %}
