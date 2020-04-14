@@ -3,7 +3,7 @@
         "name":"Syeda Marium Faheem",
         "tagline":"I am Full Stack web Developer",
         "local_server":"mysql://root:@localhost/myportfolio",
-      "producton_server":"mysql://root:@localhost/myportfolio",
+      "producton_server":"DATABASE_URL"
         "contact":"Get In Touch",
       "contactdetail":"Contact Detail",
       "email":"mariums82@gmail.com",
