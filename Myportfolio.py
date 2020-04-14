@@ -478,6 +478,5 @@ def logout():
     return redirect('/dashboard')
 
 
-app.run(debug=True)
 
 
