@@ -4,11 +4,11 @@ import json,os
 from werkzeug.utils import secure_filename
 
 
-with open('C://Users//SS Computer//PycharmProjects//Myportfolio//config.json','r') as c:
+with open('config.json','r') as c:
     params = json.load(c)["params"]
 
 app = Flask(__name__)
-local_host=True
+local_host=False
 if (local_host):
     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_server']
 else:
