@@ -1,2 +1,3 @@
-import create_app
+from Myportfolio import create_app
+
 app=create_app()
