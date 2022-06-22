@@ -24,7 +24,7 @@ MarkupSafe==1.1.1
 matplot==0.1.9
 matplotlib==3.2.0
 mysqlclient==1.4.6
-numpy==1.18.1
+numpy==1.22.0
 pandas==1.0.3
 Pillow==7.0.0
 pkginfo==1.5.0.1
